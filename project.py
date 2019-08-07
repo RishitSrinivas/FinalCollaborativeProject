@@ -1,4 +1,7 @@
 import sys
+
+#define all functions:
+
 class Gameboard():
 
     def __init__(self):
