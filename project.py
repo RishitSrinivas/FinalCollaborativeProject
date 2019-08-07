@@ -4,7 +4,7 @@ class Gameboard():
     def __init__(self):
         self.gameboard = {1:' ' , 2: ' ', 3: ' ', 4:' ',  5:' ',  6:' ',  7:' ',  8:' ',  9:' '}
 
-    def setPeice(self, user, position, gameboard):
+    def setPiece(self, user, position, gameboard):
         gameboard[position] = user
         return gameboard
 
@@ -78,7 +78,7 @@ class Game():
                 print("A number must be entered.")
                 self.on_end()
 
-    def takeTurn(self, user, peice):
+    def takeTurn(self, user, piece):
         print(user + ' choose a place, 1-9')
         try:
             position = int(input(': '))
@@ -87,13 +87,13 @@ class Game():
 
         except:
             print('Pick a number between 1-9')
-            return self.takeTurn(user, peice)
+            return self.takeTurn(user, piece)
 
         if self.controlBoard.is_place_taken(self.gameboard, position):
             print("That place is taken.")
-            self.takeTurn(user,peice)
+            self.takeTurn(user,piece)
         else:
-            self.controlBoard.setPeice(peice, position, self.gameboard)
+            self.controlBoard.setPiece(piece, position, self.gameboard)
             self.controlBoard.printBoard(self.gameboard)
             if self.controlBoard.is_game_won(self.gameboard):
                 print(user +  " wins.")
