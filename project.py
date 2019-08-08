@@ -57,7 +57,7 @@ class Game():
         self.player_one = input(' : ')
         print("What is player two's name?")
         self.player_two = input(' : ')
-        print('Each place in the gameboard are represented by 1-9, starting from left column each time moving along the row.')
+        print('Each place in the gameboard are represented by 1-9, starting from the top left and moving right then down.')
         self.controlBoard.printBoard(self.gameboard)
         self.turn = 1
 
@@ -112,7 +112,7 @@ class Game():
                 self.takeTurn(self.player_two, 'o')
 
             if self.controlBoard.is_board_full(self.gameboard):
-                print("It's a draw!! You both lose!")
+                print("It's a draw!!!")
                 self.running = False
             self.turn += 1
 
